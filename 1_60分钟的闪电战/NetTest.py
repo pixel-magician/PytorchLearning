@@ -27,12 +27,12 @@ class Net(nn.Module):
         x = self.fc3(x)
         return x
 
-    def num_flat_features(self, x):
-        size = x.size()[1:]  # 除去批处理维度的其他所有维度
-        num_features = 1
-        for s in size:
-            num_features *= s
-        return num_features
+    # def num_flat_features(self, x):
+    #     size = x.size()[1:]  # 除去批处理维度的其他所有维度
+    #     num_features = 1
+    #     for s in size:
+    #         num_features *= s
+    #     return num_features
 
 
 def imshow(img):
@@ -55,12 +55,12 @@ if __name__ == '__main__':
          transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     trainset = torchvision.datasets.CIFAR10(
-        root='./Learn/data', train=True, download=False, transform=transform)
+        root='./1_60分钟的闪电战/data', train=True, download=False, transform=transform)
     trainloader = torch.utils.data.DataLoader(
         trainset, batch_size=4, shuffle=True, num_workers=2)
 
     testset = torchvision.datasets.CIFAR10(
-        root='./Learn/data', train=False, download=False, transform=transform)
+        root='./1_60分钟的闪电战/data', train=False, download=False, transform=transform)
     testloader = torch.utils.data.DataLoader(
         testset, batch_size=4, shuffle=False, num_workers=2)
 
